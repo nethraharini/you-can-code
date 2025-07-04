@@ -1,0 +1,101 @@
+<!-- signup.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up – YouCanCode</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../static/css/signup.css">
+
+
+</head>
+<!-- Frosted Glass Navbar -->
+<nav class="navbar glass-navbar hidden-navbar navbar-expand-lg px-4 py-3"></nav>
+  <div class="container-fluid">
+    <a class="navbar-brand glass-brand" href="home.html">YouCanCode</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarLinks">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarLinks">
+      <ul class="navbar-nav">
+       
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <div class="container d-flex align-items-center justify-content-center min-vh-100">
+    <div class="row shadow-lg rounded-4 overflow-hidden w-100 glass-card" style="max-width: 900px;">
+      
+      <!-- Left Logo Area -->
+      <div class="col-md-6 d-none d-md-flex align-items-center justify-content-center flex-column p-4 text-white left-pane">
+        <div class="glass-text mb-3 text-center">
+          <h1>YouCanCode</h1>
+        </div>
+        <p class="text-center px-2">Even if you're under pressure,<br> you're still going to crack it </p>
+      </div>
+
+      <!-- Signup Form -->
+      <div class="col-md-6 p-5 bg-white bg-opacity-75">
+        <h3 class="text-center mb-4">Create Your Account</h3>
+        <form>
+          <div class="mb-3">
+            <label for="fullname" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="fullname" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" required>
+          </div>
+          <div class="mb-3">
+            <label for="confirmPassword" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="confirmPassword" required>
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="terms" required>
+            <label class="form-check-label" for="terms">
+              I agree to the <a href="#">terms & conditions</a>
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+        </form>
+        <p class="text-center mt-3">
+          Already have an account? <a href="login.html">Log in</a>
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const heading = document.querySelector('.glass-text h1');
+    setTimeout(() => {
+      heading.classList.add('animate-neon');
+    }, 2000); // Start pulse after typing completes
+  });
+
+  let lastScrollTop = 0;
+  const navbar = document.querySelector('.glass-navbar');
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+
+    if (scrollY > 100) {
+      navbar.classList.add('show-navbar');
+    } else {
+      navbar.classList.remove('show-navbar');
+    }
+
+    lastScrollTop = scrollY;
+  });
+</script>
+
+
+</body>
+</html>

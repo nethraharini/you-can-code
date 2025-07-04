@@ -1,0 +1,216 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: url('../assets/signup.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #333;
+  margin: 0;
+  min-height: 100vh;
+}
+
+.left-pane {
+  background: rgb(155, 194, 221);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.1) inset,
+    5px 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.glass-text h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: transparent;
+  background: linear-gradient(135deg, 
+    #fff 20%, 
+    rgba(235, 68, 68, 0.8) 50%, 
+    #fff 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: 
+    0 0 10px rgba(100, 213, 255, 0.5),
+    0 0 20px rgba(235, 68, 68, 0.8)
+    0 0 30px rgba(100, 213, 255, 0.2);
+  letter-spacing: 4px;
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+  position: relative;
+}
+
+/* Typing animation */
+.glass-text h1::after {
+  content: "YOU CAN CODE";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: 
+    type-YOU 0.5s steps(3) forwards,
+    type-CAN 0.5s steps(3) 0.6s forwards,
+    type-CODE 0.8s steps(4) 1.2s forwards;
+}
+
+@keyframes type-YOU {
+  to { width: 3ch; } /* "YOU" = 3 characters */
+}
+
+@keyframes type-CAN {
+  to { width: 7ch; } /* "YOU CAN" = 7 characters (including space) */
+}
+
+@keyframes type-CODE {
+  to { width: 12ch; } /* "YOU CAN CODE" = 12 characters */
+}
+
+/* Cursor blink effect */
+.glass-text h1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  animation: 
+    cursor-blink 0.8s infinite,
+    cursor-move 2s steps(12) forwards;
+  z-index: 10;
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+@keyframes cursor-move {
+  0% { right: 100%; }
+  100% { right: 0; }
+}
+
+/* Neon pulse after full text appears */
+.glass-text h1.animate-neon {
+  animation: neon-pulse 2s infinite alternate 2s;
+}
+
+.left-pane p {
+  color: white;
+  font-weight: 500;
+  font-size: 1.2rem;
+  text-shadow: 
+    0 0 8px rgba(255, 255, 255, 0.7),
+    0 0 3px rgba(0, 0, 0, 0.5);
+  animation: text-flicker 3s infinite alternate;
+}
+
+@keyframes text-flicker {
+  0%, 19%, 21%, 23%, 25%, 100% {
+    opacity: 1;
+  }
+  20%, 22%, 24% {
+    opacity: 0.8;
+  }
+}
+.left-pane {
+  position: relative;
+}
+
+.left-pane::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.2); /* Dark overlay */
+  opacity: 0.3;
+  z-index: -1;
+}
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Rest of your existing CSS remains good */
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease-in-out;
+}
+
+input:focus {
+  border-color: #0066ff;
+  box-shadow: 0 0 0 0.15rem rgba(0, 102, 255, 0.25);
+}
+
+button {
+  border-radius: 0.5rem;
+  font-weight: 600;
+  background: linear-gradient(to right, #667c9d, #7bc3db);
+  border: none;
+  transition: all 0.3s;
+}
+
+button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 5px 15px rgba(0, 102, 255, 0.3);
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1, h3 {
+  font-weight: 700;
+}
+
+
+* Frosted Glass Navbar */
+.glass-navbar {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+/* Navbar Brand Text (YOUCANCODE) */
+.glass-brand {
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: transparent;
+  background: linear-gradient(120deg, rgba(255,255,255,0.9), rgba(255,255,255,0.2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+  text-shadow: 0 0 15px rgba(255,255,255,0.3);
+}
+
+
+
+.nav-link:hover,
+.nav-link.active {
+  color: #a4d2ff !important;
+  text-shadow: 0 0 8px rgba(164, 210, 255, 0.6);
+}
+
+
+
+
+
