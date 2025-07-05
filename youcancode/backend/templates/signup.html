@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sign Up – YouCanCode</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}" />
+</head>
+<body>
+
+<!-- Clean Navbar for Signup -->
+<nav class="navbar glass-navbar navbar-expand-lg px-4 py-3">
+  <div class="container-fluid">
+    <a class="navbar-brand glass-brand" href="{{ url_for('home') }}">YouCanCode</a>
+  </div>
+</nav>
+
+
+<!-- Main Signup Section -->
+<div class="container d-flex align-items-center justify-content-center min-vh-100">
+  <div class="row shadow-lg rounded-4 overflow-hidden w-100 glass-card" style="max-width: 900px;">
+    
+    <!-- Left Logo Pane -->
+    <div class="col-md-6 d-none d-md-flex align-items-center justify-content-center flex-column p-4 text-white left-pane">
+      <div class="glass-text mb-3 text-center">
+        <h1>YouCanCode</h1>
+      </div>
+      <p class="text-center px-2">Even if you're under pressure,<br> you're still going to crack it</p>
+    </div>
+
+    <!-- Signup Form -->
+    <div class="col-md-6 p-5 bg-white bg-opacity-75">
+      <h3 class="text-center mb-4">Create Your Account</h3>
+      <form method="POST" action="{{ url_for('signup') }}">
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+<input type="text" class="form-control" id="username" name="username" required />
+
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email Address</label>
+          <input type="email" class="form-control" id="email" name="email" required />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" name="password" required />
+        </div>
+        <div class="mb-3">
+          <label for="confirmPassword" class="form-label">Confirm Password</label>
+          <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required />
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="terms" required />
+          <label class="form-check-label" for="terms">
+            I agree to the <a href="#">terms & conditions</a>
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+      </form>
+      <p class="text-center mt-3">
+        Already have an account? <a href="{{ url_for('login') }}">Log in</a>
+      </p>
+
+      <!-- Admin Pattern (Hidden by default) -->
+      <div id="adminPatternWrapper" style="display: none;" class="text-center mt-3">
+        <input
+          type="password"
+          id="adminPattern"
+          placeholder="Enter admin pattern"
+          class="form-control form-control-sm mb-2"
+          style="max-width: 250px; margin: 0 auto;"
+        />
+        <a href="{{ url_for('admin_entry') }}" id="adminLoginLink" class="btn btn-outline-danger btn-sm" style="display: none;">
+          Admin Login
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Bootstrap Bundle JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Secret Trigger + Admin Logic -->
+<script>
+  // Neon Text Animation
+  document.addEventListener('DOMContentLoaded', function () {
+    const heading = document.querySelector('.glass-text h1');
+    setTimeout(() => {
+      heading.classList.add('animate-neon');
+    }, 2000);
+  });
+
+  // Frosted Navbar Scroll Show
+  const navbar = document.querySelector('.glass-navbar');
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    navbar.classList.toggle('show-navbar', scrollY > 100);
+  });
+
+  // 🔐 Admin Secret Key Detector
+  let keyBuffer = '';
+  const secretTrigger = 'openadmin';
+
+  document.addEventListener('keydown', (e) => {
+    keyBuffer += e.key.toLowerCase();
+    if (keyBuffer.includes(secretTrigger)) {
+      document.getElementById('adminPatternWrapper').style.display = 'block';
+      keyBuffer = '';
+    }
+    if (keyBuffer.length > 20) {
+      keyBuffer = keyBuffer.slice(-secretTrigger.length);
+    }
+  });
+
+  // Show Admin Login on Pattern Match
+  document.getElementById('adminPattern').addEventListener('input', function () {
+    const pattern = this.value.trim();
+    const adminLink = document.getElementById('adminLoginLink');
+    adminLink.style.display = pattern === '09041411' ? 'inline-block' : 'none';
+  });
+</script>
+
+</body>
+</html>

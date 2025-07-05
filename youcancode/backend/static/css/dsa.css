@@ -1,0 +1,166 @@
+/* ========= Base Reset & Font ========== */
+:where(*, *::before, *::after) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:where(html) {
+  scroll-behavior: smooth;
+}
+
+:where(body) {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #333;
+  background-color: #fefefe;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
+    url('../assets/dsa.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 1; /* keep full opacity since gradient softens it */
+  z-index: -1;
+}
+
+/* ========= Wrapper Styling ========== */
+.dsa-wrapper {
+  flex: 1;
+  padding: 3rem 1rem;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
+  border-radius: 12px;
+  margin: 2rem auto;
+  max-width: 960px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* ========= Section Title ========== */
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #e91e63; /* Pink */
+  text-align: center;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  text-align: center;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+/* ========= Topic Cards ========== */
+.topic-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(233, 30, 99, 0.15);
+  border-radius: 10px;
+  padding: 1.25rem;
+  margin: 1rem auto;
+  box-shadow: 0 5px 15px rgba(233, 30, 99, 0.05);
+  color: #e91e63;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: center;
+  transition: 0.3s ease;
+  cursor: pointer;
+  max-width: 300px;
+}
+
+.topic-card:hover {
+  background-color: rgba(233, 30, 99, 0.07);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(233, 30, 99, 0.12);
+}
+
+/* ========= Footer ========== */
+footer {
+  background: rgba(233, 30, 99, 0.9);
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+/* ========= Frosted Glass Navbar ========== */
+.glass-navbar {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Brand Text */
+.glass-brand {
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: transparent;
+  background: linear-gradient(120deg, rgba(255,255,255,0.9), rgba(255,255,255,0.2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+  text-shadow: 0 0 15px rgba(255,255,255,0.3);
+}
+
+/* Navigation Links */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  font-size: 1rem;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #a4d2ff !important;
+  text-shadow: 0 0 8px rgba(164, 210, 255, 0.6);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background-color: #a4d2ff;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Push page content down (because navbar is fixed) */
+body {
+  padding-top: 80px;
+}
