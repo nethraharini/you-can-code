@@ -5,7 +5,8 @@
 ![Signup Page](https://github.com/nethraharini/you-can-code/blob/main/Screenshots_YouCanCode/Signup_1.png)
 ![Login Page](https://github.com/nethraharini/you-can-code/blob/main/Screenshots_YouCanCode/login_1.png)
 ![Home Page](https://github.com/nethraharini/you-can-code/blob/main/Screenshots_YouCanCode/Home_1.png)
-![Courses Page](https://github.com/nethraharini/you-can-code/blob/main/Screenshots_YouCanCode/Courses_1.png)
+![Home Page](https://github.com/nethraharini/you-can-code/blob/main/Screenshots_YouCanCode/Home_2.png)
+![Courses Page](https://github.com/nethraharini/you-can-code/blob/main/Screenshots_YouCanCode/Courses_DSA.png)
 
 ---
 
