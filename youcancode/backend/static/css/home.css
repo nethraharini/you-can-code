@@ -93,4 +93,45 @@ body {
   transform: scale(1.05);
 }
 
+/* Courses Section - Updated for black heading */
+.courses-section {
+  background: white;
+}
 
+.courses-section h2 {
+  color: black !important; /* Force black color */
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.courses-section .card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.courses-section .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+/* Tesseract Icon in Navbar */
+.navbar-brand-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.glass-brand:hover .navbar-brand-icon {
+  transform: rotate(15deg);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+/* Adjust the existing glass-brand to accommodate the icon */
+.glass-brand {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+}

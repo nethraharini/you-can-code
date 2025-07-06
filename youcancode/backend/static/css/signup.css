@@ -210,7 +210,28 @@ h1, h3 {
   text-shadow: 0 0 8px rgba(164, 210, 255, 0.6);
 }
 
+/* Tesseract Icon in Navbar */
+.navbar-brand-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
 
+.glass-brand:hover .navbar-brand-icon {
+  transform: rotate(15deg);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+/* Adjust the existing glass-brand to accommodate the icon */
+.glass-brand {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+}
 
 
 

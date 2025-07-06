@@ -9,15 +9,22 @@
 </head>
 <body>
 
- <nav class="glass-navbar">
-   <a class="navbar-brand glass-brand" href="home.html">YouCanCode</a>
+<nav class="navbar glass-navbar navbar-expand-lg px-4 py-3">
+  <div class="container-fluid">
+    <a class="navbar-brand glass-brand d-flex align-items-center" href="{{ url_for('home') }}">
+      <img src="{{ url_for('static', filename='assets/tessaract.jpg') }}" 
+           class="navbar-brand-icon me-2" 
+           alt="Tesseract Icon">
+      YouCanCode
+    </a>
   <ul class="nav-menu">
-    <li><a href="home.html" class="nav-link">Home</a></li>
-    <li><a href="login.html" class="nav-link">Login</a></li>
-    <li><a href="signup.html" class="nav-link">Signup</a></li>
-
-    
-   
+    <li><a href="{{ url_for('home') }}"class="nav-link">Home</a></li>
+    {% if session.get('user') %}
+        <li><a href="{{ url_for('logout') }}" class="nav-link">Logout</a></li>
+     {% else %}
+    <li><a href="{{ url_for('signup') }}" class="nav-link">Signup</a></li>
+  <li><a href="{{ url_for('login') }}" class="nav-link">Login</a></li>
+    {% endif %}
   </ul>
 </nav>
 

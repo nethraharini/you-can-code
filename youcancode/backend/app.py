@@ -143,7 +143,11 @@ def mysql():
 
 @app.route("/pandas")
 def pandas():
-    return render_template("pandas.html")
+    if "user" in session:
+        return render_template("pandas.html")
+    flash("Please log in to view this course.", "warning")
+    return redirect(url_for("login", next=request.path))
+
 
 
 # (Add others like java, mysql, pandas similarly...)

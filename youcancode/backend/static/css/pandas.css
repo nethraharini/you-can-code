@@ -1,0 +1,315 @@
+/* ===== BASE STYLES ===== */
+:root {
+  --primary-blue: #1a237e;
+  --secondary-blue: #283593;
+  --accent-blue: #5c6bc0;
+  --text-dark: #2d3748;
+  --text-light: rgba(255, 255, 255, 0.95);
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  padding-top: 70px; /* For fixed navbar */
+}
+
+/* ===== GLASS NAVBAR (HIGH VISIBILITY, NO BULLETS) ===== */
+.glass-navbar {
+  background: rgba(0, 0, 0, 0.25) !important; /* Darker for contrast */
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2) !important;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 0.8rem 2rem;
+}
+
+/* Remove all list styling */
+.glass-navbar .navbar-nav,
+.glass-navbar .nav-item {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Brand styling */
+.glass-navbar .navbar-brand {
+  font-weight: 800 !important;
+  font-size: 1.6rem !important;
+  color: var(--text-light) !important;
+  text-shadow: 
+    0 0 8px rgba(255,255,255,0.8),
+    0 0 15px rgba(255,255,255,0.5);
+  letter-spacing: 0.5px;
+}
+
+/* Nav links - high visibility */
+.glass-navbar .nav-link {
+  color: var(--text-light) !important;
+  font-weight: 600 !important;
+  font-size: 1.1rem !important;
+  padding: 0.8rem 1.2rem !important;
+  margin: 0 0.2rem !important;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  transition: all 0.2s ease;
+  border-radius: 6px;
+  position: relative;
+}
+
+/* Hover/active states */
+.glass-navbar .nav-link:hover,
+.glass-navbar .nav-link.active {
+  color: white !important;
+  background: rgba(255, 255, 255, 0.15) !important;
+  text-shadow: 0 0 12px rgba(255,255,255,0.9);
+}
+
+/* Underline animation */
+.glass-navbar .nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 8px;
+  left: 1.2rem;
+  right: 1.2rem;
+  background-color: white;
+  box-shadow: 0 0 8px rgba(164, 210, 255, 1);
+  transition: width 0.3s ease;
+}
+
+.glass-navbar .nav-link:hover::after,
+.glass-navbar .nav-link.active::after {
+  width: calc(100% - 2.4rem);
+}
+
+/* Mobile menu button */
+.glass-navbar .navbar-toggler {
+  border-color: rgba(255,255,255,0.5) !important;
+  padding: 0.5rem !important;
+}
+
+.glass-navbar .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* ===== HERO SECTION ===== */
+.pandas-hero {
+  background: linear-gradient(135deg, rgba(26, 35, 126, 0.85), rgba(66, 153, 225, 0.85)),
+              url('/static/assets/pandas.jpg') center/cover no-repeat;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  margin-top: 70px;
+  position: relative;
+}
+
+.hero-content {
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 2rem;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  opacity: 0.9;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== MAIN CONTENT ===== */
+.page-container {
+  position: relative;
+  z-index: 3;
+  margin-top: -50px;
+  padding-bottom: 3rem;
+}
+
+.notes-glass {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.736);
+}
+
+/* ===== CONTENT STYLES ===== */
+.notes-glass h1 {
+  color: var(--primary-blue);
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.notes-glass h2 {
+  color: var(--secondary-blue);
+  margin: 2.5rem 0 1.5rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.notes-glass h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--accent-blue);
+}
+
+/* CODE BLOCKS */
+pre {
+  background: rgba(237, 242, 247, 0.9);
+  border-left: 4px solid var(--accent-blue);
+  padding: 1.2rem;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+code {
+  font-family: 'Fira Code', monospace;
+  color: var(--text-dark);
+  font-size: 0.9rem;
+}
+
+/* LISTS */
+ul {
+  padding-left: 1.8rem;
+  margin: 1.2rem 0;
+}
+
+li {
+  margin-bottom: 0.7rem;
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 992px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+  .hero-subtitle {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .glass-navbar {
+    padding: 0.6rem 1rem !important;
+  }
+  
+  .pandas-hero {
+    height: 250px;
+    margin-top: 60px;
+  }
+  
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .page-container {
+    margin-top: -30px;
+  }
+  
+  .notes-glass {
+    padding: 1.8rem;
+    margin: 0 1rem;
+  }
+  
+  .glass-navbar .nav-link {
+    padding: 0.8rem !important;
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .notes-glass {
+    padding: 1.5rem;
+  }
+}
+
+/* ===== GLASS NAVBAR FIX ===== */
+.navbar.glass-navbar {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1030 !important; /* Higher than Bootstrap's default */
+  background: rgba(0, 0, 0, 0.25) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2) !important;
+  padding: 0.8rem 2rem;
+}
+
+/* Ensure body padding matches navbar height */
+body {
+  padding-top: 70px !important; /* Must match navbar height */
+}
+
+/* Reset any Bootstrap margins */
+.navbar.glass-navbar {
+  margin-bottom: 0 !important;
+}
+
+/* Tesseract Icon in Navbar */
+.navbar-brand-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.glass-brand:hover .navbar-brand-icon {
+  transform: rotate(15deg);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+/* Adjust the existing glass-brand to accommodate the icon */
+.glass-brand {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+}

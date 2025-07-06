@@ -9,10 +9,14 @@
 </head>
 <body>
 
-<!-- Frosted Navbar -->
 <nav class="navbar glass-navbar navbar-expand-lg px-4 py-3">
   <div class="container-fluid">
-    <a class="navbar-brand glass-brand" href="{{ url_for('home') }}">YouCanCode</a>
+    <a class="navbar-brand glass-brand d-flex align-items-center" href="{{ url_for('home') }}">
+      <img src="{{ url_for('static', filename='assets/tessaract.jpg') }}" 
+           class="navbar-brand-icon me-2" 
+           alt="Tesseract Icon">
+      YouCanCode
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarLinks">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -117,7 +121,7 @@
         <a href="{{ url_for('pandas') }}" class="text-decoration-none text-dark">
           <div class="card shadow-sm h-100">
             <div class="card-body">
-              <h5 class="card-title">Pandas & Matplotlib</h5>
+              <h5 class="card-title">Pandas</h5>
               <p class="card-text">Analyze and visualize data like a pro using Python’s powerful libraries.</p>
             </div>
           </div>

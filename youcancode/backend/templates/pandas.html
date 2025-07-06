@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pandas Study Notes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pandas.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- 🧊 Glass Navbar -->
+<nav class="navbar glass-navbar fixed-top navbar-expand-lg px-4 py-3">
+  <div class="container-fluid">
+    <a class="navbar-brand glass-brand d-flex align-items-center" href="{{ url_for('home') }}">
+      <img src="{{ url_for('static', filename='assets/tessaract.jpg') }}" 
+           class="navbar-brand-icon me-2" 
+           alt="Tesseract Icon">
+      YouCanCode
+    </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+                {% if session.get('user') %}
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('logout') }}">Logout</a></li>
+                {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('signup') }}">Sign Up</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Login</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- 🐼 Hero Header -->
+<div class="pandas-hero">
+    <div class="hero-content">
+        <h1 class="hero-title">Let's Code Pandas</h1>
+        <p class="hero-subtitle">Master Data Manipulation with Python</p>
+    </div>
+</div>
+
+<!-- 📚 Main Content -->
+<div class="container-fluid page-container">
+    <div class="notes-glass p-4">
+        <h1>🐼 Pandas Study Notes</h1>
+
+        <!-- Rest of your content remains the same -->
+        <section>
+            <h2>1. Introduction</h2>
+            <p>Pandas is a powerful Python library for data manipulation and analysis. It provides two main structures:</p>
+            <ul>
+                <li><strong>Series</strong>: One-dimensional labeled array</li>
+                <li><strong>DataFrame</strong>: Two-dimensional labeled data table</li>
+            </ul>
+        </section>
+
+        <!-- ... other sections ... -->
+
+            <h2>2. Creating Structures</h2>
+<pre><code>import pandas as pd
+
+# Series
+s = pd.Series([10, 20, 30])
+
+# DataFrame
+data = {'Name': ['Alice', 'Bob'], 'Age': [25, 30]}
+df = pd.DataFrame(data)</code></pre>
+        </section>
+   <section>
+            <h2>2. Creating Data Structures</h2>
+<pre><code>import pandas as pd
+
+# Series
+s = pd.Series([10, 20, 30])
+
+# DataFrame from dictionary
+data = {'Name': ['Alice', 'Bob'], 'Age': [25, 30]}
+df = pd.DataFrame(data)
+print(df)</code></pre>
+        </section>
+
+        <section>
+            <h2>3. Accessing Data</h2>
+<pre><code># Access column
+df['Name']
+
+# Access row by index
+df.loc[0]       # by label
+df.iloc[0]      # by integer position</code></pre>
+        </section>
+
+        <section>
+            <h2>4. Filtering, Sorting, Modifying</h2>
+<pre><code># Filtering
+df[df['Age'] > 25]
+
+# Sorting
+df.sort_values(by='Age')
+
+# Adding new column
+df['Salary'] = [50000, 60000]
+
+# Deleting column
+df.drop('Salary', axis=1)</code></pre>
+        </section>
+
+        <section>
+            <h2>5. Handling Missing Values</h2>
+<pre><code>df.isnull()          # Check missing values
+df.dropna()          # Drop rows with missing data
+df.fillna(0)         # Fill missing with 0</code></pre>
+        </section>
+
+        <section>
+            <h2>6. GroupBy and Aggregation</h2>
+<pre><code># Group by column
+df.groupby('Name').mean()
+
+# Aggregation
+df['Age'].sum()
+df['Age'].mean()</code></pre>
+        </section>
+
+        <section>
+            <h2>7. Merging and Concatenation</h2>
+<pre><code># Merge two DataFrames on common column
+pd.merge(df1, df2, on='ID')
+
+# Concatenate two DataFrames
+pd.concat([df1, df2])</code></pre>
+        </section>
+
+        <section>
+            <h2>8. Reading / Writing CSV</h2>
+<pre><code># Reading from CSV
+df = pd.read_csv('file.csv')
+
+# Writing to CSV
+df.to_csv('output.csv', index=False)</code></pre>
+        </section>
+
+        <section>
+            <h2>9. Mini Practice</h2>
+            <ul>
+                <li>Create a DataFrame of students with marks. Filter those who scored above 90.</li>
+                <li>Group employee data by department and find average salary.</li>
+                <li>Load a CSV and check how many rows contain missing values.</li>
+            </ul>
+        </section>
+        <!-- Add more sections as needed just like above -->
+
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
