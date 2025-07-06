@@ -2,10 +2,22 @@
 
 **You Can Code** is a beginner-friendly, visually appealing online coding platform created to help students kickstart their programming journey with ease. It's designed to offer a clean interface, engaging content structure, and a motivating environment to learn and grow!
 
+SIGN UP:
 ![Signup Page](https://github.com/nethraharini/you-can-code/blob/main/Screenshots_YouCanCode/Signup_1.png)
+---
+LOGIN :
 ![Login Page](https://github.com/nethraharini/you-can-code/blob/main/Screenshots_YouCanCode/login_1.png)
+---
+HOME_1 :
 ![Home Page](https://github.com/nethraharini/you-can-code/blob/main/Screenshots_YouCanCode/Home_1.png)
-![Courses Page](https://github.com/nethraharini/you-can-code/blob/main/Screenshots_YouCanCode/Courses_1.png)
+---
+
+HOME_2 :
+![Home Page](https://github.com/nethraharini/you-can-code/blob/main/Screenshots_YouCanCode/Home_2.png)
+---
+
+DSA COURSE PAGE :
+![DSA Page](https://github.com/nethraharini/you-can-code/blob/main/Screenshots_YouCanCode/Course_DSA.png)
 
 ---
 
